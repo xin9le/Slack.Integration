@@ -2,7 +2,7 @@
 
 
 
-namespace Slack.Integraion
+namespace Slack.Integration
 {
     /// <summary>
     /// <see cref="Color"/> の拡張機能を提供します。

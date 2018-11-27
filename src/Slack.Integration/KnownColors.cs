@@ -1,4 +1,4 @@
-﻿namespace Slack.Integraion
+﻿namespace Slack.Integration
 {
     /// <summary>
     /// Provides known color pattern on Slack.

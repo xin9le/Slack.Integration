@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 
 
-namespace Slack.Integraion.IncomingWebhook
+namespace Slack.Integration.IncomingWebhook
 {
     /// <summary>
     /// Represents an attachment in payload.

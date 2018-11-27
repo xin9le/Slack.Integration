@@ -2,7 +2,7 @@
 
 
 
-namespace Slack.Integraion.IncomingWebhook
+namespace Slack.Integration.IncomingWebhook
 {
     /// <summary>
     /// Represents the parse mode.
