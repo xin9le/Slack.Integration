@@ -139,6 +139,6 @@ namespace Slack.Integration.IncomingWebhook
         /// Gets or sets a timestamp (from Unix Epoch) that is displayed right side of footer text.
         /// </summary>
         [DataMember(Name = "ts")]
-        public int Timestamp { get; set; }
+        public long Timestamp { get; set; }
     }
 }
