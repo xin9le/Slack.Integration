@@ -96,6 +96,13 @@ namespace Slack.Integration.IncomingWebhook
 
 
         /// <summary>
+        /// Gets or sets the action fields.
+        /// </summary>
+        [DataMember(Name = "actions")]
+        public IReadOnlyCollection<Action> Actions { get; set; }
+
+
+        /// <summary>
         /// Gets or sets a valid URL to an image file that will be displayed inside a message attachment.
         /// </summary>
         /// <remarks>
