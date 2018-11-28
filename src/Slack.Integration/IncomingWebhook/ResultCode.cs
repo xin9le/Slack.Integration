@@ -85,7 +85,9 @@ namespace Slack.Integration.IncomingWebhook
                 = (Enum.GetValues(typeof(ResultCode)) as ResultCode[])
                 .Select(x =>
                 {
-                    var attr = x.GetType().GetCustomAttribute<EnumMemberAttribute>();
+                    var type = x.GetType();
+                    var name = Enum.GetName(type, x);
+                    var attr = type.GetField(name).GetCustomAttribute<EnumMemberAttribute>();
                     return (value: x, message: attr.Value);
                 })
                 .ToDictionary(x => x.message, x => x.value);
