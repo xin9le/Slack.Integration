@@ -12,8 +12,9 @@ namespace Slack.Integration.IncomingWebhook
     /// <summary>
     /// Provides incoming webhook client. 
     /// </summary>
-    public class WebhookClient
+    public class WebhookClient : IDisposable
     {
+        #region Properties
         /// <summary>
         /// Gets a <see cref="HttpClient"/>.
         /// </summary>
@@ -21,13 +22,56 @@ namespace Slack.Integration.IncomingWebhook
 
 
         /// <summary>
+        /// Gets whether the <see cref="IDisposable.Dispose"/> method needs to be called.
+        /// </summary>
+        private bool NeedsDispose { get; }
+        #endregion
+
+
+        #region Constructors
+        /// <summary>
+        /// Creates instance.
+        /// </summary>
+        /// <param name="client"></param>
+        public WebhookClient()
+        {
+            this.Client = new HttpClient();
+            this.NeedsDispose = true;
+        }
+
+
+        /// <summary>
         /// Creates instance.
         /// </summary>
         /// <param name="client"></param>
         public WebhookClient(HttpClient client)
-            => this.Client = client;
+        {
+            this.Client = client;
+            this.NeedsDispose = false;
+        }
+        #endregion
 
 
+        #region IDisposable implementations
+        /// <summary>
+        /// Releases the used resources.
+        /// </summary>
+        public void Dispose()
+        {
+            if (!this.NeedsDispose)
+                return;
+
+            if (this.isDisposed)
+                return;
+
+            this.Client.Dispose();
+            this.isDisposed = true;
+        }
+        private bool isDisposed = false;
+        #endregion
+
+
+        #region Methods
         /// <summary>
         /// Send a specified payload to Slack.
         /// </summary>
@@ -49,5 +93,6 @@ namespace Slack.Integration.IncomingWebhook
                 return result.ToResultCode();
             }   
         }
+        #endregion
     }
 }
