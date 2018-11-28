@@ -63,7 +63,7 @@ namespace Slack.Integration.IncomingWebhook
         /// Gets or sets whether to enable name and channel linking.
         /// </summary>
         [DataMember(Name = "link_names")]
-        public LinkNames LinkNames { get; set; }
+        public bool LinkNames { get; set; }
 
 
         /// <summary>
