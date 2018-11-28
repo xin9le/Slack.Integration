@@ -1,4 +1,8 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
 
 
 
@@ -57,5 +61,43 @@ namespace Slack.Integration.IncomingWebhook
         /// </summary>
         [EnumMember(Value = "rollup_error")]
         RollupError,
+    }
+
+
+
+    /// <summary>
+    /// Provides <see cref="ErrorCode"/> extension functions.
+    /// </summary>
+    internal static class ErrorCodeExtensions
+    {
+        /// <summary>
+        /// Gets error message and code cache. 
+        /// </summary>
+        private static IReadOnlyDictionary<string, ErrorCode> Cache { get; }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        static ErrorCodeExtensions()
+        {
+            Cache
+                = (Enum.GetValues(typeof(ErrorCode)) as ErrorCode[])
+                .Select(x =>
+                {
+                    var attr = x.GetType().GetCustomAttribute<EnumMemberAttribute>();
+                    return (value: x, message: attr.Value);
+                })
+                .ToDictionary(x => x.message, x => x.value);
+        }
+
+
+        /// <summary>
+        /// Converts error message to error code.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public static ErrorCode ToErrorCode(this string message)
+            => Cache[message];
     }
 }

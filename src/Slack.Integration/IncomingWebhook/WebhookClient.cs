@@ -35,7 +35,7 @@ namespace Slack.Integration.IncomingWebhook
         /// <param name="payload"></param>
         /// <param name="token"></param>
         /// <returns></returns>
-        public async Task SendAsync(string url, Payload payload, CancellationToken token = default)
+        public async Task<ErrorCode> SendAsync(string url, Payload payload, CancellationToken token = default)
         {
             if (url == null) throw new ArgumentNullException(nameof(url));
             if (payload == null) throw new ArgumentNullException(nameof(payload));
@@ -45,7 +45,8 @@ namespace Slack.Integration.IncomingWebhook
             {
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 var response = await this.Client.PostAsync(url, content, token).ConfigureAwait(false);
-                await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                return result.ToErrorCode();
             }   
         }
     }
