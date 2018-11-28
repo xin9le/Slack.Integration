@@ -9,9 +9,9 @@ using System.Runtime.Serialization;
 namespace Slack.Integration.IncomingWebhook
 {
     /// <summary>
-    /// Represents the error code of response. 
+    /// Represents the result code of response. 
     /// </summary>
-    public enum ErrorCode
+    public enum ResultCode
     {
         /// <summary>
         /// Success.
@@ -66,23 +66,23 @@ namespace Slack.Integration.IncomingWebhook
 
 
     /// <summary>
-    /// Provides <see cref="ErrorCode"/> extension functions.
+    /// Provides <see cref="ResultCode"/> extension functions.
     /// </summary>
-    internal static class ErrorCodeExtensions
+    internal static class ResultCodeExtensions
     {
         /// <summary>
         /// Gets error message and code cache. 
         /// </summary>
-        private static IReadOnlyDictionary<string, ErrorCode> Cache { get; }
+        private static IReadOnlyDictionary<string, ResultCode> Cache { get; }
 
 
         /// <summary>
         /// 
         /// </summary>
-        static ErrorCodeExtensions()
+        static ResultCodeExtensions()
         {
             Cache
-                = (Enum.GetValues(typeof(ErrorCode)) as ErrorCode[])
+                = (Enum.GetValues(typeof(ResultCode)) as ResultCode[])
                 .Select(x =>
                 {
                     var attr = x.GetType().GetCustomAttribute<EnumMemberAttribute>();
@@ -93,11 +93,11 @@ namespace Slack.Integration.IncomingWebhook
 
 
         /// <summary>
-        /// Converts error message to error code.
+        /// Converts result message to result code.
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        public static ErrorCode ToErrorCode(this string message)
+        public static ResultCode ToResultCode(this string message)
             => Cache[message];
     }
 }
