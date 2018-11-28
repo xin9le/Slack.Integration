@@ -4,7 +4,7 @@
     /// Provides known color pattern on Slack.
     /// Like traffic signals.
     /// </summary>
-    public static class KnownColors
+    public static class KnownColor
     {
         /// <summary>
         /// Gets a good color. This value is constant.
