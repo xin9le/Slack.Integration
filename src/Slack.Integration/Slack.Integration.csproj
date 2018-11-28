@@ -1,8 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
+    <IsPackable>true</IsPackable>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionSuffix>alpha1</VersionSuffix>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/xin9le/Slack.Integration</PackageProjectUrl>
+    <Description>Provides Slack incoming webhook API.</Description>
+    <PackageReleaseNotes>- Supports Incoming Webhook.
+- Supports HttpClientFactory (= ASP.NET Core MVC Dependency Injection).</PackageReleaseNotes>
+    <Copyright>Copyright© xin9le, All rights reserved.</Copyright>
+    <PackageTags>Slack, Webhook</PackageTags>
+    <RepositoryUrl>https://github.com/xin9le/Slack.Integration</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageIconUrl>https://icons8.jp/icon/30439/slack</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
