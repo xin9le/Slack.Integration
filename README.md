@@ -92,6 +92,9 @@ var payload = new Payload
 };
 ```
 
+![2018-11-29 15 49 39](https://user-images.githubusercontent.com/4776688/49205381-344e9300-f3f2-11e8-8849-cd446dd2a6d4.png)
+
+
 
 ## HttpClientFactory integration
 
