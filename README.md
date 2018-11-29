@@ -119,7 +119,7 @@ public async Task<IActionResult> DoSomethingAction([FromServices] WebhookClient 
 
 ## Installation
 
-Getting started from downloading NuGet packages.
+Getting started from downloading [NuGet package](https://www.nuget.org/packages/Slack.Integration).
 
 ```
 PM> Install-Package Slack.Integration
