@@ -18,6 +18,9 @@
     <RepositoryUrl>https://github.com/xin9le/Slack.Integration</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageIconUrl>https://img.icons8.com/office/50/000000/slack.png</PackageIconUrl>
+    <Authors>xin9le</Authors>
+    <Product>Slack.Integration</Product>
+    <Company></Company>
   </PropertyGroup>
 
   <ItemGroup>
