@@ -17,7 +17,7 @@
     <PackageTags>Slack, Webhook</PackageTags>
     <RepositoryUrl>https://github.com/xin9le/Slack.Integration</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <PackageIconUrl>https://icons8.jp/icon/30439/slack</PackageIconUrl>
+    <PackageIconUrl>https://img.icons8.com/office/50/000000/slack.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
