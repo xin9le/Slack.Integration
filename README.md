@@ -3,6 +3,7 @@
 This library provides Slack APIs. You can integrate your service and Slack. Currently support is only Incoming Webhook.
 
 - Incoming Webhook
+- Slash Command
 - `HttpClientFactory` (= ASP.NET Core MVC Dependency Injection) support
 - Easy to pass known colors and emojis
 
@@ -12,7 +13,7 @@ This library provides Slack APIs. You can integrate your service and Slack. Curr
 
 Super easy to use.
 
-```
+```cs
 var url = "<Your Incoming Webhook URL here.>";
 var payload = new Payload { Text = "Hello, Slack!!" };
 var client = new WebhookClient();
@@ -21,7 +22,7 @@ await client.SendAsync(url, payload);
 
 Following is payload sample.
 
-```
+```cs
 var payload = new Payload
 {
     UserName = "Incoming Webhook",
@@ -96,12 +97,33 @@ var payload = new Payload
 
 
 
+## Slash Command
+
+Slash Command requests sent from Slack can be mapped as follows.
+
+```cs
+using Microsoft.AspNetCore.Mvc;
+using Slack.Integration.SlashCommand;
+
+public class SlashCommandController : Controller
+{
+    [HttpPost]
+    public IAsyncResult DoSomething([FromForm]Request request)  // request mapping
+    {
+        // do something
+        return this.Ok();
+    }
+}
+```
+
+
+
 ## HttpClientFactory integration
 
 You can pass the `HttpClient` instance to `WebhookClient` constructor. Its argument supports `HttpClientFactory` (= ASP.NET Core MVC Dependency Injection).
 
 
-```
+```cs
 // Startup.cs
 
 public void ConfigureServices(IServiceCollection services)
@@ -109,7 +131,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddHttpClient<WebhookClient>();
 }
 ```
-```
+```cs
 // XxxController.cs
 
 public async Task<IActionResult> DoSomethingAction([FromServices] WebhookClient client)
