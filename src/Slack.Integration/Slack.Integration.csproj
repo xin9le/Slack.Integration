@@ -4,17 +4,16 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <IsPackable>true</IsPackable>
-    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionPrefix>1.1.0</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/xin9le/Slack.Integration</PackageProjectUrl>
-    <Description>Provides Slack incoming webhook API.</Description>
-    <PackageReleaseNotes>- Supports Incoming Webhook.
-- Supports HttpClientFactory (= ASP.NET Core MVC Dependency Injection).</PackageReleaseNotes>
+    <Description>Provides Slack incoming webhook API and slash command request mapping.</Description>
+    <PackageReleaseNotes>- Add slash command request mapping support.</PackageReleaseNotes>
     <Copyright>Copyright© xin9le, All rights reserved.</Copyright>
-    <PackageTags>Slack, Webhook</PackageTags>
+    <PackageTags>Slack, Webhook, Slash Command</PackageTags>
     <RepositoryUrl>https://github.com/xin9le/Slack.Integration</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageIconUrl>https://img.icons8.com/office/50/000000/slack.png</PackageIconUrl>
