@@ -8,6 +8,7 @@ namespace Slack.Integration.SlashCommand
     /// Represents a slash command request.
     /// </summary>
     /// <remarks>https://api.slack.com/slash-commands</remarks>
+    [DataContract]
     public class Request
     {
         /// <summary>
@@ -24,56 +25,57 @@ namespace Slack.Integration.SlashCommand
         /// Gets or sets a team ID.
         /// </summary>
         [DataMember(Name = "team_id")]
-        public string TeamId { get; set; }
+      //[FromForm(Name = "team_id")] なら OK だけど ASP.NET Core MVC に依存するのがイヤだから Snake Case を甘んじて受け入れる
+        public string Team_Id { get; set; }
 
 
         /// <summary>
         /// Gets or sets a team domain name.
         /// </summary>
         [DataMember(Name = "team_domain")]
-        public string TeamDomain { get; set; }
+        public string Team_Domain { get; set; }
 
 
         /// <summary>
         /// Gets or sets a enterprise ID.
         /// </summary>
         [DataMember(Name = "enterprise_id")]
-        public string EnterpriseId { get; set; }
+        public string Enterprise_Id { get; set; }
 
 
         /// <summary>
         /// Gets or sets a enterprise name.
         /// </summary>
         [DataMember(Name = "enterprise_name")]
-        public string EnterpriseName { get; set; }
+        public string Enterprise_Name { get; set; }
 
 
         /// <summary>
         /// Gets or sets a channel ID.
         /// </summary>
         [DataMember(Name = "channel_id")]
-        public string ChannelId { get; set; }
+        public string Channel_Id { get; set; }
 
 
         /// <summary>
         /// Gets or sets a channel name.
         /// </summary>
         [DataMember(Name = "channel_name")]
-        public string ChannelName { get; set; }
+        public string Channel_Name { get; set; }
 
 
         /// <summary>
         /// Gets or sets a user ID.
         /// </summary>
         [DataMember(Name = "user_id")]
-        public string UserId { get; set; }
+        public string User_Id { get; set; }
 
 
         /// <summary>
         /// Gets or sets a user name.
         /// </summary>
         [DataMember(Name = "user_name")]
-        public string UserName { get; set; }
+        public string User_Name { get; set; }
 
 
         /// <summary>
@@ -97,7 +99,7 @@ namespace Slack.Integration.SlashCommand
         /// </summary>
         /// <remarks>https://api.slack.com/slash-commands#responding_response_url</remarks>
         [DataMember(Name = "response_url")]
-        public string ResponseUrl { get; set; }
+        public string Response_Url { get; set; }
 
 
         /// <summary>
@@ -108,6 +110,6 @@ namespace Slack.Integration.SlashCommand
         /// </summary>
         /// <remarks>https://api.slack.com/slash-commands#responding_response_url</remarks>
         [DataMember(Name = "trigger_id")]
-        public string TriggerId { get; set; }
+        public string Trigger_Id { get; set; }
     }
 }
