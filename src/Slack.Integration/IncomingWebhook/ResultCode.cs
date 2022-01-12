@@ -23,7 +23,7 @@ public enum ResultCode
     /// <para>HTTP 200 : OK</para>
     /// </summary>
     [EnumMember(Value = "ok")]
-    OK = 0,
+    OK,
 
     /// <summary>
     /// The data sent in your request cannot be understood as presented; verify your content body matches your content type and is structurally valid.
