@@ -88,7 +88,11 @@ public class WebhookClient : IDisposable
         {
             content.Headers.ContentType = new("application/json");
             var response = await this.Client.PostAsync(url, content, cancellationToken).ConfigureAwait(false);
+#if NET5_0_OR_GREATER
+            var result = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+#else
             var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+#endif
             return result.ToResultCode();
         }
     }
