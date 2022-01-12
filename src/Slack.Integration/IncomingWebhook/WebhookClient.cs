@@ -76,9 +76,9 @@ public class WebhookClient : IDisposable
     /// </summary>
     /// <param name="url"></param>
     /// <param name="payload"></param>
-    /// <param name="token"></param>
+    /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    public async Task<ResultCode> SendAsync(string url, Payload payload, CancellationToken token = default)
+    public async Task<ResultCode> SendAsync(string url, Payload payload, CancellationToken cancellationToken = default)
     {
         if (url == null) throw new ArgumentNullException(nameof(url));
         if (payload == null) throw new ArgumentNullException(nameof(payload));
@@ -87,7 +87,7 @@ public class WebhookClient : IDisposable
         using (var content = new ByteArrayContent(json))
         {
             content.Headers.ContentType = new("application/json");
-            var response = await this.Client.PostAsync(url, content, token).ConfigureAwait(false);
+            var response = await this.Client.PostAsync(url, content, cancellationToken).ConfigureAwait(false);
             var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             return result.ToResultCode();
         }
