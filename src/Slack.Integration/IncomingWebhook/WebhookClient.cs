@@ -32,7 +32,6 @@ public class WebhookClient : IDisposable
     /// <summary>
     /// Creates instance.
     /// </summary>
-    /// <param name="client"></param>
     public WebhookClient()
     {
         this.Client = new HttpClient();
