@@ -9,6 +9,7 @@ namespace Slack.Integration.IncomingWebhook;
 /// </summary>
 public class Field
 {
+#pragma warning disable CS8618
     /// <summary>
     /// Gets or sets a title.
     /// </summary>
@@ -28,4 +29,5 @@ public class Field
     /// </summary>
     [DataMember(Name = "short")]
     public bool Short { get; set; }
+#pragma warning restore CS8618
 }

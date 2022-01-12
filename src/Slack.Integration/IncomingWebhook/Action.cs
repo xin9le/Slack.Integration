@@ -9,6 +9,7 @@ namespace Slack.Integration.IncomingWebhook;
 /// </summary>
 public class Action
 {
+#pragma warning disable CS8618
     /// <summary>
     /// Gets or sets an action type.
     /// </summary>
@@ -35,4 +36,5 @@ public class Action
     /// </summary>
     [DataMember(Name = "style")]
     public ActionStyle Style { get; set; }
+#pragma warning restore CS8618
 }

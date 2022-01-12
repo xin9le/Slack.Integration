@@ -13,6 +13,7 @@ namespace Slack.Integration.IncomingWebhook;
 /// </summary>
 public class Attachment
 {
+#pragma warning disable CS8618
     /// <summary>
     /// Gets or sets a plain-text summary of the attachment.
     /// This text will be used in clients that don't show formatted text (eg. IRC, mobile notifications) and should not contain any markup.
@@ -147,4 +148,5 @@ public class Attachment
     /// </summary>
     [DataMember(Name = "ts")]
     public long Timestamp { get; set; }
+#pragma warning restore CS8618
 }

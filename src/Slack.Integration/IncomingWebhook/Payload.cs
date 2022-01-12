@@ -10,6 +10,7 @@ namespace Slack.Integration.IncomingWebhook;
 /// </summary>
 public class Payload
 {
+#pragma warning disable CS8618
     /// <summary>
     /// Gets or sets a user name.
     /// </summary>
@@ -78,4 +79,5 @@ public class Payload
     /// </summary>
     [DataMember(Name = "attachments")]
     public IReadOnlyCollection<Attachment> Attachments { get; set; }
+#pragma warning restore CS8618
 }

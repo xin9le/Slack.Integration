@@ -91,9 +91,9 @@ internal static class ResultCodeExtensions
             .Select(static x =>
             {
                 var type = x.GetType();
-                var name = Enum.GetName(type, x);
-                var attr = type.GetField(name).GetCustomAttribute<EnumMemberAttribute>();
-                return (value: x, message: attr.Value);
+                var name = Enum.GetName(type, x)!;
+                var attr = type.GetField(name)!.GetCustomAttribute<EnumMemberAttribute>()!;
+                return (value: x, message: attr.Value!);
             })
             .ToDictionary(static x => x.message, static x => x.value);
     }

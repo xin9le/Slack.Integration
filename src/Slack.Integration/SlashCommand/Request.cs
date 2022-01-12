@@ -11,6 +11,7 @@ namespace Slack.Integration.SlashCommand;
 [DataContract]
 public class Request
 {
+#pragma warning disable CS8618
     /// <summary>
     /// Gets or sets a verification token.
     /// 
@@ -111,4 +112,5 @@ public class Request
     /// <remarks>https://api.slack.com/slash-commands#responding_response_url</remarks>
     [DataMember(Name = "trigger_id")]
     public string Trigger_Id { get; set; }
+#pragma warning restore CS8618
 }
