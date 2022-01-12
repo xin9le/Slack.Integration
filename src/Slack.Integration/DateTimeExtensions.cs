@@ -23,7 +23,7 @@ public static class DateTimeExtensions
     /// </summary>
     /// <param name="value"></param>
     /// <returns></returns>
-    public static long ToUnixTimeSeconds(this DateTime value)
+    public static long ToUnixTimeSeconds(this in DateTime value)
     {
         var utc = value.ToUniversalTime();
         var elapsed = utc - UnixEpoch;
