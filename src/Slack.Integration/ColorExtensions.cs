@@ -14,6 +14,6 @@ public static class ColorExtensions
     /// </summary>
     /// <param name="color">value</param>
     /// <returns></returns>
-    public static string ToHex(this Color color)
+    public static string ToHex(this in Color color)
         => $"#{color.R:X2}{color.G:X2}{color.B:X2}";
 }
