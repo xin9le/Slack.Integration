@@ -11,7 +11,7 @@ namespace Slack.Integration.IncomingWebhook;
 /// <summary>
 /// Represents the result code of response. 
 /// </summary>
-public enum ResultCode
+public enum ResultCode : byte
 {
     /// <summary>
     /// Unknown

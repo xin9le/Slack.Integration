@@ -10,7 +10,7 @@ namespace Slack.Integration.IncomingWebhook;
 /// Represents action type.
 /// </summary>
 [JsonConverter(typeof(EnumMemberConverter<ActionType>))]
-public enum ActionType
+public enum ActionType : byte
 {
     /// <summary>
     /// 

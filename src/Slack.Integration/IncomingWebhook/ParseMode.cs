@@ -10,7 +10,7 @@ namespace Slack.Integration.IncomingWebhook;
 /// Represents the parse mode.
 /// </summary>
 [JsonConverter(typeof(EnumMemberConverter<ParseMode>))]
-public enum ParseMode
+public enum ParseMode : byte
 {
     /// <summary>
     /// 

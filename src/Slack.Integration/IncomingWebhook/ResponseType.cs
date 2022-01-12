@@ -10,7 +10,7 @@ namespace Slack.Integration.IncomingWebhook;
 /// Represents the message response type.
 /// </summary>
 [JsonConverter(typeof(EnumMemberConverter<ResponseType>))]
-public enum ResponseType
+public enum ResponseType : byte
 {
     /// <summary>
     /// Visible to all.

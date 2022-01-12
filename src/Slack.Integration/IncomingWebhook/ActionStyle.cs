@@ -10,7 +10,7 @@ namespace Slack.Integration.IncomingWebhook;
 /// Represents the action style.
 /// </summary>
 [JsonConverter(typeof(EnumMemberConverter<ActionStyle>))]
-public enum ActionStyle
+public enum ActionStyle : byte
 {
     /// <summary>
     /// Use UI's default text color.
