@@ -65,6 +65,7 @@ public class WebhookClient : IDisposable
 
         this.Client.Dispose();
         this.isDisposed = true;
+        GC.SuppressFinalize(this);
     }
     private bool isDisposed = false;
     #endregion
