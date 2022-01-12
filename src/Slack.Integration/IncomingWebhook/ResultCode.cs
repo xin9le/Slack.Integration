@@ -89,29 +89,29 @@ internal static class ResultCodeExtensions
 #if NET5_0_OR_GREATER
         Cache
             = Enum.GetValues<ResultCode>()
-            .Where(static x => x is not ResultCode.Unknown)
             .Select(static x =>
             {
                 var type = x.GetType();
                 var name = Enum.GetName(x)!;
                 var field = type.GetField(name)!;
-                var attr = field.GetCustomAttribute<EnumMemberAttribute>()!;
-                return (value: x, message: attr.Value!);
+                var attr = field.GetCustomAttribute<EnumMemberAttribute>();
+                return (value: x, message: attr?.Value);
             })
-            .ToDictionary(static x => x.message, static x => x.value);
+            .Where(static x => x.message is not null)
+            .ToDictionary(static x => x.message!, static x => x.value);
 #else
         Cache
             = (Enum.GetValues(typeof(ResultCode)) as ResultCode[])
-            .Where(static x => x is not ResultCode.Unknown)
             .Select(static x =>
             {
                 var type = x.GetType();
                 var name = Enum.GetName(type, x)!;
                 var field = type.GetField(name)!;
-                var attr = field.GetCustomAttribute<EnumMemberAttribute>()!;
-                return (value: x, message: attr.Value!);
+                var attr = field.GetCustomAttribute<EnumMemberAttribute>();
+                return (value: x, message: attr?.Value);
             })
-            .ToDictionary(static x => x.message, static x => x.value);
+            .Where(static x => x.message is not null)
+            .ToDictionary(static x => x.message!, static x => x.value);
 #endif
     }
 
