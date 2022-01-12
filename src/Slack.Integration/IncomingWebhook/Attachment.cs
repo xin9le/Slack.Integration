@@ -70,8 +70,8 @@ public class Attachment
 
 
     /// <summary>
-    ///  Gets or sets a valid URL.
-    ///  The title text will be hyperlinked.
+    /// Gets or sets a valid URL.
+    /// The title text will be hyperlinked.
     /// </summary>
     [DataMember(Name = "title_link")]
     public string TitleLink { get; set; }
