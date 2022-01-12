@@ -7,6 +7,7 @@
 /// </summary>
 public static class KnownEmoji
 {
+#pragma warning disable CS1591
     public const string PlusOne = ":+1:";
     public const string MinusOne = ":-1:";
     public const string OneHundred = ":100:";
@@ -890,4 +891,5 @@ public static class KnownEmoji
     public const string Zap = ":zap:";
     public const string Zero = ":zero:";
     public const string Zzz = ":zzz:";
+#pragma warning restore CS1591
 }
