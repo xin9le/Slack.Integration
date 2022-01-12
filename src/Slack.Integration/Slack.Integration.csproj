@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFrameworks>netstandard2.0;netstandard2.1;net461;net5.0;net6.0</TargetFrameworks>
-        <LangVersion>latest</LangVersion>
+        <LangVersion>10.0</LangVersion>
         <IsPackable>true</IsPackable>
         <VersionPrefix>1.1.0</VersionPrefix>
         <VersionSuffix></VersionSuffix>
