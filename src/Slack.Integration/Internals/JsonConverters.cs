@@ -11,7 +11,7 @@ namespace Slack.Integration.Internals;
 
 
 /// <summary>
-/// 
+/// Provides <see cref="EnumMemberAttribute.Value"/> from/to JSON converter.
 /// </summary>
 /// <typeparam name="T"></typeparam>
 internal sealed class EnumMemberConverter<T> : JsonConverter<T>
