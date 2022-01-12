@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using Utf8Json;
 
 namespace Slack.Integration.IncomingWebhook;
 
@@ -87,21 +87,13 @@ public class WebhookClient : IDisposable
     /// <returns></returns>
     public async Task<ResultCode> SendAsync(string url, Payload payload, CancellationToken cancellationToken = default)
     {
-        if (url == null) throw new ArgumentNullException(nameof(url));
-        if (payload == null) throw new ArgumentNullException(nameof(payload));
-
-        var json = JsonSerializer.Serialize(payload);
-        using (var content = new ByteArrayContent(json))
-        {
-            content.Headers.ContentType = new("application/json");
-            var response = await this.Client.PostAsync(url, content, cancellationToken).ConfigureAwait(false);
+        var response = await this.Client.PostAsJsonAsync(url, payload, cancellationToken).ConfigureAwait(false);
 #if NET5_0_OR_GREATER
-            var result = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+        var result = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 #else
-            var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+        var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 #endif
-            return result.ToResultCode();
-        }
+        return result.ToResultCode();
     }
     #endregion
 }
