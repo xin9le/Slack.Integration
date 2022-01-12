@@ -81,8 +81,13 @@ internal static class ResultCodeExtensions
     /// </summary>
     static ResultCodeExtensions()
     {
+#if NET5_0_OR_GREATER
+        var codes = Enum.GetValues<ResultCode>();
+#else
+        var codes = Enum.GetValues(typeof(ResultCode)) as ResultCode[];
+#endif
         Cache
-            = (Enum.GetValues(typeof(ResultCode)) as ResultCode[])
+            = codes
             .Select(x =>
             {
                 var type = x.GetType();
