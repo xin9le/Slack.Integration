@@ -94,10 +94,10 @@ internal static class ResultCodeExtensions
                 var name = Enum.GetName(x)!;
                 var field = typeof(ResultCode).GetField(name)!;
                 var attr = field.GetCustomAttribute<EnumMemberAttribute>();
-                return (value: x, message: attr?.Value);
+                return (code: attr?.Value, value: x);
             })
-            .Where(static x => x.message is not null)
-            .ToDictionary(static x => x.message!, static x => x.value);
+            .Where(static x => x.code is not null)
+            .ToDictionary(static x => x.code!, static x => x.value);
 #else
         Cache
             = (Enum.GetValues(typeof(ResultCode)) as ResultCode[])
@@ -107,10 +107,10 @@ internal static class ResultCodeExtensions
                 var name = Enum.GetName(type, x)!;
                 var field = type.GetField(name)!;
                 var attr = field.GetCustomAttribute<EnumMemberAttribute>();
-                return (value: x, message: attr?.Value);
+                return (code: attr?.Value, value: x);
             })
-            .Where(static x => x.message is not null)
-            .ToDictionary(static x => x.message!, static x => x.value);
+            .Where(static x => x.code is not null)
+            .ToDictionary(static x => x.code!, static x => x.value);
 #endif
     }
 
