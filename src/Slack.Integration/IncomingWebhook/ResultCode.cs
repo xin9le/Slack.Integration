@@ -82,20 +82,31 @@ internal static class ResultCodeExtensions
     static ResultCodeExtensions()
     {
 #if NET5_0_OR_GREATER
-        var codes = Enum.GetValues<ResultCode>();
+        Cache
+            = Enum.GetValues<ResultCode>()
+            .Select(static x =>
+            {
+                var type = x.GetType();
+                var name = Enum.GetName(x)!;
+                var field = type.GetField(name)!;
+                var attr = field.GetCustomAttribute<EnumMemberAttribute>()!;
+                return (value: x, message: attr.Value!);
+            })
+            .ToDictionary(static x => x.message, static x => x.value);
 #else
         var codes = Enum.GetValues(typeof(ResultCode)) as ResultCode[];
-#endif
         Cache
             = codes
             .Select(static x =>
             {
                 var type = x.GetType();
                 var name = Enum.GetName(type, x)!;
-                var attr = type.GetField(name)!.GetCustomAttribute<EnumMemberAttribute>()!;
+                var field = type.GetField(name)!;
+                var attr = field.GetCustomAttribute<EnumMemberAttribute>()!;
                 return (value: x, message: attr.Value!);
             })
             .ToDictionary(static x => x.message, static x => x.value);
+#endif
     }
 
 
