@@ -48,6 +48,13 @@ public class WebhookClient : IDisposable
         this.Client = client;
         this.NeedsDispose = false;
     }
+
+
+    /// <summary>
+    /// Destroy instance.
+    /// </summary>
+    ~WebhookClient()
+        => this.Dispose();
     #endregion
 
 
