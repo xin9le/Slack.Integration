@@ -4,25 +4,25 @@
         <TargetFrameworks>netstandard2.0;netstandard2.1;net461;net5.0;net6.0</TargetFrameworks>
         <LangVersion>10.0</LangVersion>
     </PropertyGroup>
-        
+
     <PropertyGroup>
         <IsPackable>true</IsPackable>
-        <VersionPrefix>1.1.0</VersionPrefix>
-        <VersionSuffix></VersionSuffix>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
-        <PackageProjectUrl>https://github.com/xin9le/Slack.Integration</PackageProjectUrl>
+        <PackageId>Slack.Integration</PackageId>
+        <Version>1.1.0.0</Version>
         <Description>Provides Slack incoming webhook API and slash command request mapping.</Description>
-        <PackageReleaseNotes>- Add slash command request mapping support.</PackageReleaseNotes>
-        <Copyright>Copyright© xin9le, All rights reserved.</Copyright>
-        <PackageTags>Slack, Webhook, Slash Command</PackageTags>
-        <RepositoryUrl>https://github.com/xin9le/Slack.Integration</RepositoryUrl>
-        <RepositoryType>Git</RepositoryType>
+        <PackageProjectUrl>https://github.com/xin9le/Slack.Integration</PackageProjectUrl>
         <PackageIconUrl>https://img.icons8.com/office/50/000000/slack.png</PackageIconUrl>
+        <PackageTags>Slack, Webhook, Slash Command</PackageTags>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>$(PackageProjectUrl)</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <Company />
         <Authors>xin9le</Authors>
-        <Product>Slack.Integration</Product>
-        <Company></Company>
+        <Copyright>Copyright© xin9le, All rights reserved.</Copyright>
+        <PackageReleaseNotes></PackageReleaseNotes>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
