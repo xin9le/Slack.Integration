@@ -14,6 +14,11 @@ namespace Slack.Integration.IncomingWebhook;
 public enum ResultCode
 {
     /// <summary>
+    /// Unknown
+    /// </summary>
+    Unknown = 0,
+
+    /// <summary>
     /// Success.
     /// <para>HTTP 200 : OK</para>
     /// </summary>
@@ -84,6 +89,7 @@ internal static class ResultCodeExtensions
 #if NET5_0_OR_GREATER
         Cache
             = Enum.GetValues<ResultCode>()
+            .Where(static x => x is not ResultCode.Unknown)
             .Select(static x =>
             {
                 var type = x.GetType();
@@ -94,9 +100,9 @@ internal static class ResultCodeExtensions
             })
             .ToDictionary(static x => x.message, static x => x.value);
 #else
-        var codes = Enum.GetValues(typeof(ResultCode)) as ResultCode[];
         Cache
-            = codes
+            = (Enum.GetValues(typeof(ResultCode)) as ResultCode[])
+            .Where(static x => x is not ResultCode.Unknown)
             .Select(static x =>
             {
                 var type = x.GetType();
@@ -116,5 +122,7 @@ internal static class ResultCodeExtensions
     /// <param name="message"></param>
     /// <returns></returns>
     public static ResultCode ToResultCode(this string message)
-        => Cache[message];
+        => Cache.TryGetValue(message, out var code)
+        ? code
+        : ResultCode.Unknown;
 }
