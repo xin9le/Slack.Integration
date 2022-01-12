@@ -91,9 +91,8 @@ internal static class ResultCodeExtensions
             = Enum.GetValues<ResultCode>()
             .Select(static x =>
             {
-                var type = x.GetType();
                 var name = Enum.GetName(x)!;
-                var field = type.GetField(name)!;
+                var field = typeof(ResultCode).GetField(name)!;
                 var attr = field.GetCustomAttribute<EnumMemberAttribute>();
                 return (value: x, message: attr?.Value);
             })
@@ -104,7 +103,7 @@ internal static class ResultCodeExtensions
             = (Enum.GetValues(typeof(ResultCode)) as ResultCode[])
             .Select(static x =>
             {
-                var type = x.GetType();
+                var type = typeof(ResultCode);
                 var name = Enum.GetName(type, x)!;
                 var field = type.GetField(name)!;
                 var attr = field.GetCustomAttribute<EnumMemberAttribute>();
