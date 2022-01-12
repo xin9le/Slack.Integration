@@ -14,10 +14,11 @@ public class Request
 #pragma warning disable CS8618
     /// <summary>
     /// Gets or sets a verification token.
-    /// 
-    /// This is a deprecated feature that you shouldn't use any more.
-    /// It was used to verify that requests were legitimately being sent by Slack to your app, but you should use the signed secrets functionality to do this instead.
     /// </summary>
+    /// <remarks>
+    /// This is a deprecated feature that you shouldn't use any more.<br/>
+    /// It was used to verify that requests were legitimately being sent by Slack to your app, but you should use the signed secrets functionality to do this instead.
+    /// </remarks>
     [DataMember(Name = "token")]
     public string Token { get; set; }
 
@@ -95,21 +96,23 @@ public class Request
 
     /// <summary>
     /// Gets or sets a response url.
-    /// 
-    /// You can use this url if you want to send delayed responses.
     /// </summary>
-    /// <remarks>https://api.slack.com/slash-commands#responding_response_url</remarks>
+    /// <remarks>
+    /// You can use this url if you want to send delayed responses.<br/>
+    /// <a href="https://api.slack.com/slash-commands#responding_response_url"></a>
+    /// </remarks>
     [DataMember(Name = "response_url")]
     public string Response_Url { get; set; }
 
 
     /// <summary>
     /// Gets or sets a trigger ID.
-    /// 
-    /// If you need to respond to the command by opening a dialog, you'll need this trigger ID to get it to work.
-    /// You can use this ID with dialog.open up to 3000ms after this data payload is sent.
     /// </summary>
-    /// <remarks>https://api.slack.com/slash-commands#responding_response_url</remarks>
+    /// <remarks>
+    /// If you need to respond to the command by opening a dialog, you'll need this trigger ID to get it to work.<br/>
+    /// You can use this ID with dialog.open up to 3000ms after this data payload is sent.<br/>
+    /// <a href="https://api.slack.com/slash-commands#responding_response_url"></a>
+    /// </remarks>
     [DataMember(Name = "trigger_id")]
     public string Trigger_Id { get; set; }
 #pragma warning restore CS8618
