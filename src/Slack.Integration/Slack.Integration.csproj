@@ -1,29 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
-    <IsPackable>true</IsPackable>
-    <VersionPrefix>1.1.0</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/xin9le/Slack.Integration</PackageProjectUrl>
-    <Description>Provides Slack incoming webhook API and slash command request mapping.</Description>
-    <PackageReleaseNotes>- Add slash command request mapping support.</PackageReleaseNotes>
-    <Copyright>Copyright© xin9le, All rights reserved.</Copyright>
-    <PackageTags>Slack, Webhook, Slash Command</PackageTags>
-    <RepositoryUrl>https://github.com/xin9le/Slack.Integration</RepositoryUrl>
-    <RepositoryType>Git</RepositoryType>
-    <PackageIconUrl>https://img.icons8.com/office/50/000000/slack.png</PackageIconUrl>
-    <Authors>xin9le</Authors>
-    <Product>Slack.Integration</Product>
-    <Company></Company>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <IsPackable>true</IsPackable>
+        <VersionPrefix>1.1.0</VersionPrefix>
+        <VersionSuffix></VersionSuffix>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/xin9le/Slack.Integration</PackageProjectUrl>
+        <Description>Provides Slack incoming webhook API and slash command request mapping.</Description>
+        <PackageReleaseNotes>- Add slash command request mapping support.</PackageReleaseNotes>
+        <Copyright>Copyright© xin9le, All rights reserved.</Copyright>
+        <PackageTags>Slack, Webhook, Slash Command</PackageTags>
+        <RepositoryUrl>https://github.com/xin9le/Slack.Integration</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageIconUrl>https://img.icons8.com/office/50/000000/slack.png</PackageIconUrl>
+        <Authors>xin9le</Authors>
+        <Product>Slack.Integration</Product>
+        <Company></Company>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Utf8Json" Version="1.3.7" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Utf8Json" Version="1.3.7" />
+    </ItemGroup>
 
 </Project>
