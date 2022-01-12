@@ -5,7 +5,7 @@ namespace Slack.Integration;
 
 
 /// <summary>
-/// <see cref="Color"/> の拡張機能を提供します。
+/// Provides <see cref="Color"/> extension functions.
 /// </summary>
 public static class ColorExtensions
 {
