@@ -88,14 +88,14 @@ internal static class ResultCodeExtensions
 #endif
         Cache
             = codes
-            .Select(x =>
+            .Select(static x =>
             {
                 var type = x.GetType();
                 var name = Enum.GetName(type, x);
                 var attr = type.GetField(name).GetCustomAttribute<EnumMemberAttribute>();
                 return (value: x, message: attr.Value);
             })
-            .ToDictionary(x => x.message, x => x.value);
+            .ToDictionary(static x => x.message, static x => x.value);
     }
 
 
