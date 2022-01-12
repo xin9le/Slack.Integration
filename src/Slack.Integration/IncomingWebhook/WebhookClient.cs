@@ -86,7 +86,7 @@ public class WebhookClient : IDisposable
         var json = JsonSerializer.Serialize(payload);
         using (var content = new ByteArrayContent(json))
         {
-            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            content.Headers.ContentType = new("application/json");
             var response = await this.Client.PostAsync(url, content, token).ConfigureAwait(false);
             var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             return result.ToResultCode();
