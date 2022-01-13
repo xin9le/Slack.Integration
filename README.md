@@ -6,6 +6,16 @@ This library provides Slack APIs. You can integrate your service and Slack. Curr
 - Slash Command
 - Easy to pass known colors and emojis
 
+[![Releases](https://img.shields.io/github/release/xin9le/Slack.Integration.svg)](https://github.com/xin9le/Slack.Integration/releases)
+[![GitHub license](https://img.shields.io/github/license/xin9le/Slack.Integration)](https://github.com/xin9le/Slack.Integration/blob/master/LICENSE)
+
+
+## Support Platform
+
+- .NET Framework 4.6.1+
+- .NET Standard 2.0+
+- .NET 5.0+
+
 
 
 ## Incoming Webhook
