@@ -4,7 +4,6 @@ This library provides Slack APIs. You can integrate your service and Slack. Curr
 
 - Incoming Webhook
 - Slash Command
-- `HttpClientFactory` (= ASP.NET Core MVC Dependency Injection) support
 - Easy to pass known colors and emojis
 
 
@@ -118,37 +117,14 @@ public class SlashCommandController : Controller
 
 
 
-## HttpClientFactory integration
-
-You can pass the `HttpClient` instance to `WebhookClient` constructor. Its argument supports `HttpClientFactory` (= ASP.NET Core MVC Dependency Injection).
-
-
-```cs
-// Startup.cs
-
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddHttpClient<WebhookClient>();
-}
-```
-```cs
-// XxxController.cs
-
-public async Task<IActionResult> DoSomethingAction([FromServices] WebhookClient client)
-{
-    await client.SendAsync(url, payload);
-}
-```
-
-
-
 ## Installation
 
-Getting started from downloading [NuGet package](https://www.nuget.org/packages/Slack.Integration).
+Getting started from downloading [NuGet](https://www.nuget.org/packages/Slack.Integration) package.
 
 ```
-PM> Install-Package Slack.Integration
+dotnet add package Slack.Integration
 ```
+
 
 
 ## License

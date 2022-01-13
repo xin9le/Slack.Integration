@@ -1,18 +1,20 @@
 ﻿using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
+using Slack.Integration.Internals;
+
+namespace Slack.Integration.IncomingWebhook;
 
 
 
-namespace Slack.Integration.IncomingWebhook
+/// <summary>
+/// Represents action type.
+/// </summary>
+[JsonConverter(typeof(EnumMemberConverter<ActionType>))]
+public enum ActionType : byte
 {
     /// <summary>
-    /// Represents action type.
+    /// 
     /// </summary>
-    public enum ActionType
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        [EnumMember(Value = "button")]
-        Button = 0,
-    }
+    [EnumMember(Value = "button")]
+    Button = 0,
 }
