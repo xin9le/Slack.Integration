@@ -10,7 +10,6 @@ namespace Slack.Integration.IncomingWebhook;
 /// </summary>
 public class Action
 {
-#pragma warning disable CS8618
     /// <summary>
     /// Gets or sets an action type.
     /// </summary>
@@ -24,7 +23,7 @@ public class Action
     /// </summary>
     [JsonPropertyName("text")]
     [DataMember(Name = "text")]
-    public string Text { get; set; }
+    public string? Text { get; set; }
 
 
     /// <summary>
@@ -32,7 +31,7 @@ public class Action
     /// </summary>
     [JsonPropertyName("url")]
     [DataMember(Name = "url")]
-    public string Url { get; set; }
+    public string? Url { get; set; }
 
 
     /// <summary>
@@ -41,5 +40,4 @@ public class Action
     [JsonPropertyName("style")]
     [DataMember(Name = "style")]
     public ActionStyle Style { get; set; }
-#pragma warning restore CS8618
 }

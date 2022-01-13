@@ -10,13 +10,12 @@ namespace Slack.Integration.IncomingWebhook;
 /// </summary>
 public class Field
 {
-#pragma warning disable CS8618
     /// <summary>
     /// Gets or sets a title.
     /// </summary>
     [JsonPropertyName("title")]
     [DataMember(Name = "title")]
-    public string Title { get; set; }
+    public string? Title { get; set; }
 
 
     /// <summary>
@@ -24,7 +23,7 @@ public class Field
     /// </summary>
     [JsonPropertyName("value")]
     [DataMember(Name = "value")]
-    public string Value { get; set; }
+    public string? Value { get; set; }
 
 
     /// <summary>
@@ -33,5 +32,4 @@ public class Field
     [JsonPropertyName("short")]
     [DataMember(Name = "short")]
     public bool Short { get; set; }
-#pragma warning restore CS8618
 }

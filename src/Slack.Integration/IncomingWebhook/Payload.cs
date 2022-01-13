@@ -11,13 +11,12 @@ namespace Slack.Integration.IncomingWebhook;
 /// </summary>
 public class Payload
 {
-#pragma warning disable CS8618
     /// <summary>
     /// Gets or sets a user name.
     /// </summary>
     [JsonPropertyName("username")]
     [DataMember(Name = "username")]
-    public string UserName { get; set; }
+    public string? UserName { get; set; }
 
 
     /// <summary>
@@ -25,7 +24,7 @@ public class Payload
     /// </summary>
     [JsonPropertyName("icon_url")]
     [DataMember(Name = "icon_url")]
-    public string IconUrl { get; set; }
+    public string? IconUrl { get; set; }
 
 
     /// <summary>
@@ -33,7 +32,7 @@ public class Payload
     /// </summary>
     [JsonPropertyName("icon_emoji")]
     [DataMember(Name = "icon_emoji")]
-    public string IconEmoji { get; set; }
+    public string? IconEmoji { get; set; }
 
 
     /// <summary>
@@ -41,7 +40,7 @@ public class Payload
     /// </summary>
     [JsonPropertyName("text")]
     [DataMember(Name = "text")]
-    public string Text { get; set; }
+    public string? Text { get; set; }
 
 
     /// <summary>
@@ -57,7 +56,7 @@ public class Payload
     /// </summary>
     [JsonPropertyName("channel")]
     [DataMember(Name = "channel")]
-    public string Channel { get; set; }
+    public string? Channel { get; set; }
 
 
     /// <summary>
@@ -89,6 +88,5 @@ public class Payload
     /// </summary>
     [JsonPropertyName("attachments")]
     [DataMember(Name = "attachments")]
-    public IReadOnlyCollection<Attachment> Attachments { get; set; }
-#pragma warning restore CS8618
+    public IReadOnlyCollection<Attachment>? Attachments { get; set; }
 }

@@ -14,14 +14,13 @@ namespace Slack.Integration.IncomingWebhook;
 /// </summary>
 public class Attachment
 {
-#pragma warning disable CS8618
     /// <summary>
     /// Gets or sets a plain-text summary of the attachment.
     /// This text will be used in clients that don't show formatted text (eg. IRC, mobile notifications) and should not contain any markup.
     /// </summary>
     [JsonPropertyName("fallback")]
     [DataMember(Name = "fallback")]
-    public string Fallback { get; set; }
+    public string? Fallback { get; set; }
 
 
     /// <summary>
@@ -33,7 +32,7 @@ public class Attachment
     /// </remarks>
     [JsonPropertyName("color")]
     [DataMember(Name = "color")]
-    public string Color { get; set; }
+    public string? Color { get; set; }
 
 
     /// <summary>
@@ -41,7 +40,7 @@ public class Attachment
     /// </summary>
     [JsonPropertyName("pretext")]
     [DataMember(Name = "pretext")]
-    public string PreText { get; set; }
+    public string? PreText { get; set; }
 
 
     /// <summary>
@@ -49,7 +48,7 @@ public class Attachment
     /// </summary>
     [JsonPropertyName("author_name")]
     [DataMember(Name = "author_name")]
-    public string AuthorName { get; set; }
+    public string? AuthorName { get; set; }
 
 
     /// <summary>
@@ -58,7 +57,7 @@ public class Attachment
     /// </summary>
     [JsonPropertyName("author_link")]
     [DataMember(Name = "author_link")]
-    public string AuthorLink { get; set; }
+    public string? AuthorLink { get; set; }
 
 
     /// <summary>
@@ -67,7 +66,7 @@ public class Attachment
     /// </summary>
     [JsonPropertyName("author_icon")]
     [DataMember(Name = "author_icon")]
-    public string AuthorIcon { get; set; }
+    public string? AuthorIcon { get; set; }
 
 
     /// <summary>
@@ -75,7 +74,7 @@ public class Attachment
     /// </summary>
     [JsonPropertyName("title")]
     [DataMember(Name = "title")]
-    public string Title { get; set; }
+    public string? Title { get; set; }
 
 
     /// <summary>
@@ -84,7 +83,7 @@ public class Attachment
     /// </summary>
     [JsonPropertyName("title_link")]
     [DataMember(Name = "title_link")]
-    public string TitleLink { get; set; }
+    public string? TitleLink { get; set; }
 
 
     /// <summary>
@@ -96,7 +95,7 @@ public class Attachment
     /// </remarks>
     [JsonPropertyName("text")]
     [DataMember(Name = "text")]
-    public string Text { get; set; }
+    public string? Text { get; set; }
 
 
     /// <summary>
@@ -104,7 +103,7 @@ public class Attachment
     /// </summary>
     [JsonPropertyName("fields")]
     [DataMember(Name = "fields")]
-    public IReadOnlyCollection<Field> Fields { get; set; }
+    public IReadOnlyCollection<Field>? Fields { get; set; }
 
 
     /// <summary>
@@ -112,7 +111,7 @@ public class Attachment
     /// </summary>
     [JsonPropertyName("actions")]
     [DataMember(Name = "actions")]
-    public IReadOnlyCollection<Action> Actions { get; set; }
+    public IReadOnlyCollection<Action>? Actions { get; set; }
 
 
     /// <summary>
@@ -124,7 +123,7 @@ public class Attachment
     /// </remarks>
     [JsonPropertyName("image_url")]
     [DataMember(Name = "image_url")]
-    public string ImageUrl { get; set; }
+    public string? ImageUrl { get; set; }
 
 
     /// <summary>
@@ -137,7 +136,7 @@ public class Attachment
     /// </remarks>
     [JsonPropertyName("thumb_url")]
     [DataMember(Name = "thumb_url")]
-    public string ThumbUrl { get; set; }
+    public string? ThumbUrl { get; set; }
 
 
     /// <summary>
@@ -148,7 +147,7 @@ public class Attachment
     /// </remarks>
     [JsonPropertyName("footer")]
     [DataMember(Name = "footer")]
-    public string Footer { get; set; }
+    public string? Footer { get; set; }
 
 
     /// <summary>
@@ -156,7 +155,7 @@ public class Attachment
     /// </summary>
     [JsonPropertyName("footer_icon")]
     [DataMember(Name = "footer_icon")]
-    public string FooterIcon { get; set; }
+    public string? FooterIcon { get; set; }
 
 
     /// <summary>
@@ -165,5 +164,4 @@ public class Attachment
     [JsonPropertyName("ts")]
     [DataMember(Name = "ts")]
     public long Timestamp { get; set; }
-#pragma warning restore CS8618
 }
