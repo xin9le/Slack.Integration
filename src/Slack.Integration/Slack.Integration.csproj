@@ -38,4 +38,8 @@
         <PackageReference Include="System.Net.Http.Json" Version="3.2.0" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="../../README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
 </Project>
