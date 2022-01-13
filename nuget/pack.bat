@@ -1,1 +1,1 @@
-dotnet pack ../src/Slack.Integration/Slack.Integration.csproj -c Release -o ../../nuget/packages
+dotnet pack ../src/Slack.Integration/Slack.Integration.csproj -c Release -o ./packages
