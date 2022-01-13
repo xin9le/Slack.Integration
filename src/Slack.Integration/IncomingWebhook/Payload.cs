@@ -88,5 +88,5 @@ public class Payload
     /// </summary>
     [JsonPropertyName("attachments")]
     [DataMember(Name = "attachments")]
-    public IReadOnlyCollection<Attachment>? Attachments { get; set; }
+    public IEnumerable<Attachment>? Attachments { get; set; }
 }

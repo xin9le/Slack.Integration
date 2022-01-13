@@ -103,7 +103,7 @@ public class Attachment
     /// </summary>
     [JsonPropertyName("fields")]
     [DataMember(Name = "fields")]
-    public IReadOnlyCollection<Field>? Fields { get; set; }
+    public IEnumerable<Field>? Fields { get; set; }
 
 
     /// <summary>
@@ -111,7 +111,7 @@ public class Attachment
     /// </summary>
     [JsonPropertyName("actions")]
     [DataMember(Name = "actions")]
-    public IReadOnlyCollection<Action>? Actions { get; set; }
+    public IEnumerable<Action>? Actions { get; set; }
 
 
     /// <summary>
