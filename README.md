@@ -12,9 +12,9 @@ This library provides Slack APIs. You can integrate your service and Slack. Curr
 
 ## Support Platform
 
-- .NET Framework 4.6.1+
+- .NET Framework 4.6.2+
 - .NET Standard 2.0+
-- .NET 5.0+
+- .NET 8.0+
 
 
 
