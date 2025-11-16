@@ -17,17 +17,9 @@ namespace Slack.Integration.Internals;
 internal sealed class EnumMemberConverter<T> : JsonConverter<T>
     where T : struct, Enum
 {
-    #region Properties
-    /// <summary>
-    /// Gets value to name map. 
-    /// </summary>
-    private static IReadOnlyDictionary<T, string> ToNameMap { get; }
-
-
-    /// <summary>
-    /// Gets name to value map. 
-    /// </summary>
-    private static IReadOnlyDictionary<string, T> ToValueMap { get; }
+    #region Fields
+    private static readonly IReadOnlyDictionary<T, string> s_toNameMap;
+    private static readonly IReadOnlyDictionary<string, T> s_toValueMap;
     #endregion
 
 
@@ -64,8 +56,8 @@ internal sealed class EnumMemberConverter<T> : JsonConverter<T>
             .Where(static x => x.name is not null)
             .ToArray();
 #endif
-        ToNameMap = pairs.ToDictionary(static x => x.value, static x => x.name!);
-        ToValueMap = pairs.ToDictionary(static x => x.name!, static x => x.value);
+        s_toNameMap = pairs.ToDictionary(static x => x.value, static x => x.name!);
+        s_toValueMap = pairs.ToDictionary(static x => x.name!, static x => x.value);
     }
     #endregion
 
@@ -79,7 +71,7 @@ internal sealed class EnumMemberConverter<T> : JsonConverter<T>
             var value = reader.GetString();
             return value is null
                 ? throw new KeyNotFoundException()
-                : ToValueMap[value];
+                : s_toValueMap[value];
         }
         catch (Exception ex)
         {
@@ -93,7 +85,7 @@ internal sealed class EnumMemberConverter<T> : JsonConverter<T>
     {
         try
         {
-            if (ToNameMap.TryGetValue(value, out var name))
+            if (s_toNameMap.TryGetValue(value, out var name))
             {
                 writer.WriteStringValue(name);
             }
