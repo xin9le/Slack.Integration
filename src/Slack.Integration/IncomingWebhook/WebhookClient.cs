@@ -49,7 +49,7 @@ public class WebhookClient : IDisposable
     #endregion
 
 
-    #region IDisposable implementations
+    #region IDisposable
     /// <summary>
     /// Releases the used resources.
     /// </summary>
