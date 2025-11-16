@@ -1,4 +1,7 @@
 ﻿using System;
+#if NET8_0_OR_GREATER
+using System.Collections.Frozen;
+#endif
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -18,8 +21,13 @@ internal sealed class EnumMemberConverter<T> : JsonConverter<T>
     where T : struct, Enum
 {
     #region Fields
+#if NET8_0_OR_GREATER
+    private static readonly FrozenDictionary<T, string> s_toNameMap;
+    private static readonly FrozenDictionary<string, T> s_toValueMap;
+#else
     private static readonly Dictionary<T, string> s_toNameMap;
     private static readonly Dictionary<string, T> s_toValueMap;
+#endif
     #endregion
 
 
@@ -56,8 +64,13 @@ internal sealed class EnumMemberConverter<T> : JsonConverter<T>
             .Where(static x => x.name is not null)
             .ToArray();
 #endif
+#if NET8_0_OR_GREATER
+        s_toNameMap = pairs.ToFrozenDictionary(static x => x.value, static x => x.name!);
+        s_toValueMap = pairs.ToFrozenDictionary(static x => x.name!, static x => x.value);
+#else
         s_toNameMap = pairs.ToDictionary(static x => x.value, static x => x.name!);
         s_toValueMap = pairs.ToDictionary(static x => x.name!, static x => x.value);
+#endif
     }
     #endregion
 
