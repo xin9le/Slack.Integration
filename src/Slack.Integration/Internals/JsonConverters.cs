@@ -18,8 +18,8 @@ internal sealed class EnumMemberConverter<T> : JsonConverter<T>
     where T : struct, Enum
 {
     #region Fields
-    private static readonly IReadOnlyDictionary<T, string> s_toNameMap;
-    private static readonly IReadOnlyDictionary<string, T> s_toValueMap;
+    private static readonly Dictionary<T, string> s_toNameMap;
+    private static readonly Dictionary<string, T> s_toValueMap;
     #endregion
 
 
