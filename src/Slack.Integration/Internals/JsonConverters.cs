@@ -1,4 +1,7 @@
 ﻿using System;
+#if NET8_0_OR_GREATER
+using System.Collections.Frozen;
+#endif
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -17,17 +20,14 @@ namespace Slack.Integration.Internals;
 internal sealed class EnumMemberConverter<T> : JsonConverter<T>
     where T : struct, Enum
 {
-    #region Properties
-    /// <summary>
-    /// Gets value to name map. 
-    /// </summary>
-    private static IReadOnlyDictionary<T, string> ToNameMap { get; }
-
-
-    /// <summary>
-    /// Gets name to value map. 
-    /// </summary>
-    private static IReadOnlyDictionary<string, T> ToValueMap { get; }
+    #region Fields
+#if NET8_0_OR_GREATER
+    private static readonly FrozenDictionary<T, string> s_toNameMap;
+    private static readonly FrozenDictionary<string, T> s_toValueMap;
+#else
+    private static readonly Dictionary<T, string> s_toNameMap;
+    private static readonly Dictionary<string, T> s_toValueMap;
+#endif
     #endregion
 
 
@@ -64,8 +64,13 @@ internal sealed class EnumMemberConverter<T> : JsonConverter<T>
             .Where(static x => x.name is not null)
             .ToArray();
 #endif
-        ToNameMap = pairs.ToDictionary(static x => x.value, static x => x.name!);
-        ToValueMap = pairs.ToDictionary(static x => x.name!, static x => x.value);
+#if NET8_0_OR_GREATER
+        s_toNameMap = pairs.ToFrozenDictionary(static x => x.value, static x => x.name!);
+        s_toValueMap = pairs.ToFrozenDictionary(static x => x.name!, static x => x.value);
+#else
+        s_toNameMap = pairs.ToDictionary(static x => x.value, static x => x.name!);
+        s_toValueMap = pairs.ToDictionary(static x => x.name!, static x => x.value);
+#endif
     }
     #endregion
 
@@ -79,7 +84,7 @@ internal sealed class EnumMemberConverter<T> : JsonConverter<T>
             var value = reader.GetString();
             return value is null
                 ? throw new KeyNotFoundException()
-                : ToValueMap[value];
+                : s_toValueMap[value];
         }
         catch (Exception ex)
         {
@@ -93,7 +98,7 @@ internal sealed class EnumMemberConverter<T> : JsonConverter<T>
     {
         try
         {
-            if (ToNameMap.TryGetValue(value, out var name))
+            if (s_toNameMap.TryGetValue(value, out var name))
             {
                 writer.WriteStringValue(name);
             }

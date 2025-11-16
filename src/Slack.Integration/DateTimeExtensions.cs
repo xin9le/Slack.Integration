@@ -13,7 +13,7 @@ public static class DateTimeExtensions
     /// <summary>
     /// Gets the Unix Epoch. This valus is constant.
     /// </summary>
-    private static readonly DateTime UnixEpoch = new(1970, 1, 1, 0, 0, 0);
+    private static readonly DateTime s_unixEpoch = new(1970, 1, 1, 0, 0, 0);
     #endregion
 
 
@@ -26,7 +26,7 @@ public static class DateTimeExtensions
     public static long ToUnixTimeSeconds(this in DateTime value)
     {
         var utc = value.ToUniversalTime();
-        var elapsed = utc - UnixEpoch;
+        var elapsed = utc - s_unixEpoch;
         return (long)elapsed.TotalSeconds;
     }
     #endregion

@@ -13,17 +13,9 @@ namespace Slack.Integration.IncomingWebhook;
 /// </summary>
 public class WebhookClient : IDisposable
 {
-    #region Properties
-    /// <summary>
-    /// Gets a <see cref="HttpClient"/>.
-    /// </summary>
-    private HttpClient Client { get; }
-
-
-    /// <summary>
-    /// Gets whether the <see cref="IDisposable.Dispose"/> method needs to be called.
-    /// </summary>
-    private bool NeedsDispose { get; }
+    #region Fields
+    private readonly HttpClient _client;
+    private readonly bool _needsDispose;
     #endregion
 
 
@@ -33,8 +25,8 @@ public class WebhookClient : IDisposable
     /// </summary>
     public WebhookClient()
     {
-        this.Client = new HttpClient();
-        this.NeedsDispose = true;
+        this._client = new HttpClient();
+        this._needsDispose = true;
     }
 
 
@@ -44,8 +36,8 @@ public class WebhookClient : IDisposable
     /// <param name="client"></param>
     public WebhookClient(HttpClient client)
     {
-        this.Client = client;
-        this.NeedsDispose = false;
+        this._client = client;
+        this._needsDispose = false;
     }
 
 
@@ -57,23 +49,23 @@ public class WebhookClient : IDisposable
     #endregion
 
 
-    #region IDisposable implementations
+    #region IDisposable
     /// <summary>
     /// Releases the used resources.
     /// </summary>
     public void Dispose()
     {
-        if (!this.NeedsDispose)
+        if (!this._needsDispose)
             return;
 
-        if (this.isDisposed)
+        if (this._isDisposed)
             return;
 
-        this.Client.Dispose();
-        this.isDisposed = true;
+        this._client.Dispose();
+        this._isDisposed = true;
         GC.SuppressFinalize(this);
     }
-    private bool isDisposed = false;
+    private bool _isDisposed = false;
     #endregion
 
 
@@ -87,7 +79,7 @@ public class WebhookClient : IDisposable
     /// <returns></returns>
     public async Task<ResultCode> SendAsync(string url, Payload payload, CancellationToken cancellationToken = default)
     {
-        var response = await this.Client.PostAsJsonAsync(url, payload, cancellationToken).ConfigureAwait(false);
+        var response = await this._client.PostAsJsonAsync(url, payload, cancellationToken).ConfigureAwait(false);
 #if NET5_0_OR_GREATER
         var result = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 #else
