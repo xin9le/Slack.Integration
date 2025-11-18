@@ -7,6 +7,7 @@ This library provides Slack APIs. You can integrate your service and Slack. Curr
 - Easy to pass known colors and emojis
 
 [![Releases](https://img.shields.io/github/release/xin9le/Slack.Integration.svg)](https://github.com/xin9le/Slack.Integration/releases)
+[![Nuget packages](https://img.shields.io/nuget/v/Slack.Integration.svg)](https://www.nuget.org/packages/Slack.Integration/)
 [![GitHub license](https://img.shields.io/github/license/xin9le/Slack.Integration)](https://github.com/xin9le/Slack.Integration/blob/master/LICENSE)
 
 
