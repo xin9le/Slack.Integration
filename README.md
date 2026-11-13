@@ -15,7 +15,7 @@ This library provides Slack APIs. You can integrate your service and Slack. Curr
 
 - .NET Framework 4.6.2+
 - .NET Standard 2.0+
-- .NET 8.0+
+- .NET 10.0+
 
 
 
@@ -146,5 +146,5 @@ This library is provided under [MIT License](http://opensource.org/licenses/MIT)
 
 ## Author
 
-Takaaki Suzuki (a.k.a [@xin9le](https://twitter.com/xin9le)) is software developer in Japan who awarded Microsoft MVP for Developer Technologies (C#) since July 2012.
+Takaaki Suzuki (a.k.a [@xin9le](https://about.xin9le.net/)) is software developer in Japan who awarded Microsoft MVP for Developer Technologies (C#) since July 2012.
 
