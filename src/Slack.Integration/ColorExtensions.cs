@@ -9,11 +9,13 @@ namespace Slack.Integration;
 /// </summary>
 public static class ColorExtensions
 {
-    /// <summary>
-    /// Converts to 16 hex string. (eg. #F0F8FF)
-    /// </summary>
-    /// <param name="color">value</param>
-    /// <returns></returns>
-    public static string ToHex(this in Color color)
-        => $"#{color.R:X2}{color.G:X2}{color.B:X2}";
+    extension(in Color @this)
+    {
+        /// <summary>
+        /// Converts to 16 hex string. (eg. #F0F8FF)
+        /// </summary>
+        /// <returns></returns>
+        public string ToHex()
+            => $"#{@this.R:X2}{@this.G:X2}{@this.B:X2}";
+    }
 }
